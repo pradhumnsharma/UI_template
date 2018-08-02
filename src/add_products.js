@@ -28,6 +28,7 @@ export default class Addproducts extends Component{
   }
 
   fileChangedHandler = (event) => {
+    alert(event.target.files[0]);
     this.setState({image: event.target.files[0]});
   }
 
@@ -92,7 +93,7 @@ export default class Addproducts extends Component{
                       <div className="form-group row">
                         <label className="col-md-3 col-form-label" htmlFor="image">Image</label>
                         <div className="col-md-9">
-                          <input className="form-control" id="image" type="file" />
+                          <input className="form-control" id="image" onChange={this.fileChangedHandler} type="file" />
                         </div>
                       </div>
                       <Button type="submit" bsStyle="primary">Add product</Button>
