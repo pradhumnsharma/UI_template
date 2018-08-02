@@ -247,7 +247,7 @@ var style = {
 // // // For tables
 // //
 //
-const thArray = ["ID", "Name", "Price", "Total Inventory", "Type"];
+const thArray = ["SNo.", "Name", "Price", "Total Inventory", "Type"];
 // });const tdArray = [
 
 //   ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],

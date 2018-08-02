@@ -66,10 +66,10 @@ class ProductList extends Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.state.newproducts.map((product)=>{
+                      {this.state.newproducts.map((product, key)=>{
              return(
                         <tr key={product.product_detail.id}>
-                  <td>{product.product_detail.id}</td>
+                  <td>{key+1}</td>
                   <td>{product.product_detail.name}</td>
                   <td>${product.product_detail.price}</td>
                   <td>{product.product_detail.total_avl_qty}</td>
