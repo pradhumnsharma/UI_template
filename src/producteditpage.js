@@ -130,13 +130,13 @@ export default class ProductEditPage extends Component{
                       <div>
                             {
                               product.image_data.map((image)=>{
-                                 return <img src={"https://ecommerce-angular.herokuapp.com"+image.url.url} alt="No image found" />
+                                 return <img style={{width: '200px', margin:'0 auto'}} src={"https://ecommerce-angular.herokuapp.com"+image.url.url} alt="No image found" />
                             })}   
                       </div>
                       <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="image">Image</label>
                         <div class="col-md-9">
-                          <input class="form-control" id="image" type="file" />
+                          <input class="form-control" id="image" type="file" onChange={this.fileChangedHandler} />
                         </div>
                       </div>
                        <div class="form-group row">
