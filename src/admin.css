@@ -1,0 +1,49 @@
+.admin{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.admin-heading{
+    font-size: 18px;
+    margin-bottom: 0;
+    padding: 14px 14px 14px 20px;
+    color: #607d8b;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.admin-side-drawer{
+    background:lightblue;
+    position:fixed;
+    height:100%;
+    z-index: -1;
+}
+.admin-side-drawer ul{
+	padding-left: 0px;
+}
+.admin-side-drawer ul li{
+	list-style-type: none;
+}
+.drawer-list li{
+	padding: 10px 0px;
+	font-size: 16px;
+}
+.drawer-list li a{
+	text-decoration: none;
+}
+.admin_panel{
+	padding:30px 0px;
+}
+.admin_panel .table-heading th{
+	text-align: center;
+}
+.table{
+  margin-top:30px;
+}
+.form-group{
+	line-height:40px;
+}
+.table th{
+	text-align: center;
+}
+.add_product{
+	margin-top:100px;
+}

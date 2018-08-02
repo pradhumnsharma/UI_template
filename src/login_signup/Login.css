@@ -1,0 +1,19 @@
+.Login p{
+	background-color: crimson;
+	color:#0f0;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    padding: 10px 0px;
+}
+@media all and (min-width: 480px) {
+  .Login {
+    padding: 60px 0;
+  }
+
+  .Login form {
+    margin: 0 auto;
+    max-width: 320px;
+  }
+}

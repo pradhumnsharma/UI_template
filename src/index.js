@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
-import { HashRouter, Route, Switch } from "react-router-dom";
-
+import App from './App';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import './index.css';
 import indexRoutes from "routes/index.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -12,12 +12,15 @@ import "./assets/css/demo.css";
 import "./assets/css/pe-icon-7-stroke.css";
 
 ReactDOM.render(
-  <HashRouter>
+  <BrowserRouter>
     <Switch>
+      <Route exact to= '/' path="/" component={App} />
       {indexRoutes.map((prop, key) => {
+
         return <Route to={prop.path} component={prop.component} key={key} />;
       })}
     </Switch>
-  </HashRouter>,
+  </BrowserRouter>,
   document.getElementById("root")
 );
+

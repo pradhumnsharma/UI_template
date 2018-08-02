@@ -1,0 +1,64 @@
+.navbar-brand{
+	font-size: 24px;
+	margin:0px!important;
+}
+
+.product{
+	margin-top:20px;
+}
+.product_name{
+	float:left;
+	margin-left: 10px;
+}
+.navbar-nav, .product_total_value{
+	font-size: 16px;
+}
+.total_amount{
+    font-size: 16px;
+    border-top: 1px solid #fff;
+    padding: 10px 0px;
+}
+.product_image{
+	width:60px;
+	float: left;
+}
+.product_quantity{
+	position: absolute;
+      top: 24px;
+    left: 50px;
+    padding: 0px 10px;
+    background: #fff;
+}
+    
+.remove{
+    float: right;
+}
+button.closedrawer{
+	font-size: 20px;
+    width:100%;
+    display: block;
+    margin-bottom: 5%;
+}
+.react-drawer-drawer.css-sourceMap-modules-importLoaders-1-localIdentName-ReactDrawer__drawer___2r5VH-sass.css-sourceMap-modules-importLoaders-1-localIdentName-ReactDrawer__drawer-right___h_uSC-sass.css-sourceMap-modules-importLoaders-1-localIdentName-animate__animated___2O131.css-sourceMap-modules-importLoaders-1-localIdentName-animate__fadeInRight___uwTeO{
+		z-index: 1111!important;
+		overflow-y: scroll;
+		overflow-x: hidden;
+}
+.react-drawer-drawer.css-sourceMap-modules-importLoaders-1-localIdentName-ReactDrawer__drawer___2r5VH-sass.css-sourceMap-modules-importLoaders-1-localIdentName-ReactDrawer__drawer-right___h_uSC-sass.css-sourceMap-modules-importLoaders-1-localIdentName-animate__animated___2O131.css-sourceMap-modules-importLoaders-1-localIdentName-animate__fadeInRight___uwTeO .row{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.empty-cart{
+	font-weight: 700;
+	font-size: 18px;
+}
+.product_name{
+	position: relative;
+	font-size:16px!important;
+}
+.product_price{
+    position: absolute;
+    top:24px;
+    left: 0;
+    font-size:15px;
+}

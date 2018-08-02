@@ -1,0 +1,62 @@
+.App {
+  text-align: center;
+}
+.front-store{
+   margin-top:60px;
+}
+.contact{
+  margin:100px 0px 50px;
+}
+.main-products{
+     margin-top:100px;
+}
+.about{
+  padding: 20px 20px;
+}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+.product-form{
+  text-align: left;
+}
+.product-form div label{
+  width:150px;
+}
+.App-title {
+  font-size: 1.5em;
+}
+.Toastify__toast-body{
+  color:#006f46;
+  font-size: 16px;
+}
+.Toastify__progress-bar{
+  background:#fff!important;
+}
+.App-intro {
+  font-size: large;
+}
+.input-range__label--min .input-range__label-container{
+  display: none;
+}
+.input-range__label--max .input-range__label-container{
+  display: none;
+}
+.input-range__label-container{
+color:#000;
+    font-size: 16px;
+    top: -10px;
+}
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.Toastify{
+  margin:auto;
+}

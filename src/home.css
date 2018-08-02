@@ -1,0 +1,40 @@
+.banner{
+  background: url('./banner.jpg');
+  background-size: 100% 100%;
+}
+.image-with-text{
+  padding:20px 0px 30px;
+}
+
+#bannerText{
+   color:#fff;
+   padding:200px 0px;
+   font-size: 26px;
+}
+#bannerText a{
+  color:#fff;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+   .banner{
+      background: url('./banner.jpg');
+          background-size: 100% 100%;
+    }
+    #bannerText{
+      padding: 100px 0px;
+    } 
+    .about{
+
+      background:#f00;
+    }
+}
+@media (max-width: 500px) {
+   .banner{
+      background: url('./banner.jpg');
+      height: 180px!important;
+          background-size: 100% 100%;
+    } 
+    #bannerText{
+      padding: 50px 0px;
+    } 
+}
