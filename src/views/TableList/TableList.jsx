@@ -53,9 +53,9 @@ class TableList extends Component {
       <div className="content">
         <Grid fluid>
           <Row>
-            <Route exact path="/table" component={ProductList} />
-            <Route path="/table/product_page" component={(props)=> <ProductPage product_id = {this.state.temp_product_id} {...props}/>} />
-                  <Route path="/table/product_edit_page" component={(props)=> <ProductEditPage product_id = {this.state.temp_product_id} {...props}/>} />
+            <Route exact path="/dashboard/table" component={ProductList} />
+            <Route path="/dashboard/table/product_page" component={(props)=> <ProductPage product_id = {this.state.temp_product_id} {...props}/>} />
+                  <Route path="/dashboard/table/product_edit_page" component={(props)=> <ProductEditPage product_id = {this.state.temp_product_id} {...props}/>} />
             
           </Row>
         </Grid>

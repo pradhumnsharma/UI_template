@@ -37,8 +37,15 @@ button.closedrawer{
 	font-size: 20px;
     width:100%;
     display: block;
+    color:red;
+    font-weight: bold;
     margin-bottom: 5%;
 }
+button.closedrawer:hover, button.closedrawer:active, button.closedrawer:visited{
+	    box-shadow: 0px 0px 10px red;
+	        background: darksalmon;
+}
+
 .react-drawer-drawer.css-sourceMap-modules-importLoaders-1-localIdentName-ReactDrawer__drawer___2r5VH-sass.css-sourceMap-modules-importLoaders-1-localIdentName-ReactDrawer__drawer-right___h_uSC-sass.css-sourceMap-modules-importLoaders-1-localIdentName-animate__animated___2O131.css-sourceMap-modules-importLoaders-1-localIdentName-animate__fadeInRight___uwTeO{
 		z-index: 1111!important;
 		overflow-y: scroll;

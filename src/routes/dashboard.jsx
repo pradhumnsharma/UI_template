@@ -9,21 +9,21 @@ import Upgrade from "views/Upgrade/Upgrade";
 import Addproduct from '../add_products';
 // import ProductList from 'views/TableList/ProductList';
 const dashboardRoutes = [
+  // {
+  //   path: "/dashboard/main-panel",
+  //   name: "Dashboard",
+  //   icon: "pe-7s-graph",
+  //   component: Dashboard
+  // },
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    icon: "pe-7s-graph",
-    component: Dashboard
-  },
-  {
-    path: "/add_product",
+    path: "/dashboard/add_product",
     name: "Add new product",
     icon: "pe-7s-user",
     component: Addproduct
   },
 
   {
-    path: "/table",
+    path: "/dashboard/table",
     name: "Table List",
     icon: "pe-7s-note2",
     component: TableList

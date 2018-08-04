@@ -6,7 +6,7 @@ import 'react-drawer/lib/react-drawer.css';
 import './customnavbar.css';
 import Quantity from './products/quantity';
 import {Col,Row,Button} from 'react-bootstrap';
-
+import Logo from 'assets/img/Veggies-logo.png';
 export default class CustomNavbar extends Component {
    constructor() {
     super();
@@ -59,7 +59,8 @@ export default class CustomNavbar extends Component {
       <Navbar default collapseOnSelect fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/">Veggies</Link>
+            
+            <Link to="/"><img src={Logo} alt="Not found" style={{width:'100px'}} /></Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -79,7 +80,7 @@ export default class CustomNavbar extends Component {
           position={this.state.position}
           onClose={this.onDrawerClose}
           noOverlay={this.state.noOverlay}>
-          <Button onClick={this.closeDrawer} className="btn btn-success closedrawer">Close</Button>
+          <Button onClick={this.closeDrawer} className="btn btn-danger closedrawer">Close</Button>
           <Row>{xxx}</Row>
           <div className="total_amount">Cart Total:- &nbsp;${this.props.cartprice}</div>
         </ReactDrawer>

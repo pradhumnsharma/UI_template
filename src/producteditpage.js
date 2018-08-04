@@ -42,9 +42,16 @@ export default class ProductEditPage extends Component{
   }
 
   uploadHandler = (event, id) => {
+    alert(id);
     event.preventDefault();
     var products = new FormData()
-    products.append('products[image]', this.state.image, this.state.image.name)
+    if(this.state.image !== null){
+      products.append('products[image]', this.state.image, this.state.image.name)  
+    }
+     else{
+      alert("Please select image");
+      return;
+    }
     products.append('products[name]', this.state.name)
     products.append('products[description]', this.state.description)
     products.append('products[price]', parseInt(this.state.price, 10))
@@ -60,7 +67,7 @@ export default class ProductEditPage extends Component{
               config: { headers: {'Content-Type': 'multipart/form-data' }}
           }).then(resp=>{
             alert('Product edited successfully');
-            this.props.history.push('/admin');
+            this.props.history.push('/dashboard');
           });
   }
     componentDidMount(){
@@ -96,7 +103,7 @@ export default class ProductEditPage extends Component{
     render(){
     	const alldata=this.state.contents.map((product)=>{
     		return(
-    			        <form key={product.product_detail.id} onSubmit={this.uploadHandler} class="form-horizontal" action="" method="post" encType="multipart/form-data">
+    			        <form key={product.product_detail.id} onSubmit={(e)=>this.uploadHandler(e, product.product_detail.id)} class="form-horizontal" action="" method="post" encType="multipart/form-data">
                       <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="name">Name</label>
                         <div class="col-md-9">
@@ -130,7 +137,8 @@ export default class ProductEditPage extends Component{
                       <div>
                             {
                               product.image_data.map((image)=>{
-                                 return <img style={{width: '200px', margin:'0 auto'}} src={"https://ecommerce-angular.herokuapp.com"+image.url.url} alt="No image found" />
+                                 return <img style={{width: '200px', margin:'0 auto'}} src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/tomato.jpg" alt="No image found" />
+                                 // return <img style={{width: '200px', margin:'0 auto'}} src={"https://ecommerce-angular.herokuapp.com"+image.url.url} alt="No image found" />
                             })}   
                       </div>
                       <div class="form-group row">

@@ -45,9 +45,10 @@ constructor(){
   
   }
   render(){
+
     return(
       <Col md={3} sm={6} xs={12} className="product">
-        <Image src={this.props.image} alt="No product" className="product-image"/>
+        <Image src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/tomato.jpg" alt="No product" className="product-image"/>
         <p>{this.props.name}</p>
         <p className="clearfix main-data"><span style={{float:'left'}}>$&nbsp;{this.props.price}</span><Quantity addQuantity={this.quantHandler.bind(this)}/></p>
           <Button bsStyle="primary" onClick={()=>{this.addCart(this.props.price, this.props.id, this.props.image, this.props.name)}}>Add To Cart</Button>       

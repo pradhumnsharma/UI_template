@@ -33,11 +33,12 @@ class ProductList extends Component {
               data: id,
               config: { headers: "Access-Control-Allow-Headers"}
           }).then(resp=>{
-              console.log(resp);
+            alert("Product deleted successfully")
+              // console.log(resp);
               this.setState({
                 deleted:true
               });
-
+                
           });
     }
     showHandler(id){
@@ -52,8 +53,7 @@ class ProductList extends Component {
           <Row>
             <Col md={12}>
               <Card
-                title="Striped Table with Hover"
-                category="Here is a subtitle for this table"
+                title="Products List"
                 ctTableFullWidth
                 ctTableResponsive
                 content={
@@ -74,9 +74,9 @@ class ProductList extends Component {
                   <td>${product.product_detail.price}</td>
                   <td>{product.product_detail.total_avl_qty}</td>
                   <td>{product.category_detail.name}</td>
-                  <td><Link to={"/table/product_page/"+product.product_detail.id} onClick={()=>this.showHandler(product.product_detail.id)}>Show</Link></td>
-                  <td><Link to={"/table/product_edit_page/"+product.product_detail.id} onClick={()=>this.showHandler(product.product_detail.id)}>Edit</Link></td>
-                  <td><a href="/table" onClick={()=>this.deleteHandler(product.product_detail.id)}>Delete</a></td>
+                  <td><Link to={"/dashboard/table/product_page/"+product.product_detail.id} onClick={()=>this.showHandler(product.product_detail.id)}>Show</Link></td>
+                  <td><Link to={"/dashboard/table/product_edit_page/"+product.product_detail.id} onClick={()=>this.showHandler(product.product_detail.id)}>Edit</Link></td>
+                  <td><a href="/dashboard/table" onClick={()=>this.deleteHandler(product.product_detail.id)}>Delete</a></td>
           </tr>
               );
     })}

@@ -14,9 +14,7 @@ import "./assets/css/pe-icon-7-stroke.css";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route exact to= '/' path="/" component={App} />
       {indexRoutes.map((prop, key) => {
-
         return <Route to={prop.path} component={prop.component} key={key} />;
       })}
     </Switch>

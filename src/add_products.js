@@ -28,14 +28,19 @@ export default class Addproducts extends Component{
   }
 
   fileChangedHandler = (event) => {
-    alert(event.target.files[0]);
     this.setState({image: event.target.files[0]});
   }
 
   uploadHandler = (event) => { 
     event.preventDefault();
     var products = new FormData()
-    products.append('products[image]', this.state.image, this.state.image.name)
+    if(this.state.image !== null){
+      products.append('products[image]', this.state.image, this.state.image.name)  
+    }
+    else{
+      alert("Please select image");
+      return;
+    }
     products.append('products[name]', this.state.name)
     products.append('products[description]', this.state.description)
     products.append('products[price]', parseInt(this.state.price, 10))
@@ -50,7 +55,7 @@ export default class Addproducts extends Component{
               config: { headers: {'Content-Type': 'multipart/form-data' }}
           }).then(resp=>{
             alert("New product added");
-            this.props.history.push("/admin");
+            this.props.history.push("/dashboard");
           });
   }
 

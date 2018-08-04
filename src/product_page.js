@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import products from './products.json';
 import {Col,Grid, Button} from 'react-bootstrap';
 import './product.css';
+import gotproducts from './products.json';
 import Quantity from './products/quantity';
 import {Link} from 'react-router-dom';
-
+// import imageExists from 'image-exists';
 export default class ProductPage extends Component{
 	state={
-		contents:[]
+		contents:[],
+    myproducts: gotproducts
 	}
 	componentDidMount(){
 		var data = 0;
@@ -26,6 +29,15 @@ export default class ProductPage extends Component{
 		        });
 	}
     render(){
+    // var src = "https://ecommerce-angular.herokuapp.com/uploads/image/url/13/capsicum.jpg";
+    // imageExists(src, function(exists) {
+    //   if (exists) {
+    //     alert("it's alive!");
+    //   }
+    //   else {
+    //     alert("oh well");
+    //   }
+    // });
         return(
     	    <div>
             <h2 className="product-page-heading">Product Detail</h2>
@@ -35,7 +47,21 @@ export default class ProductPage extends Component{
                             return(
                                     <div className="featured-image" key={product.product_detail.id}>{
                                  	    product.image_data.map((image)=>{
-                                          return <img src={"https://ecommerce-angular.herokuapp.com"+image.url.url} alt="No image found" />
+                                        // var src = "https://ecommerce-angular.herokuapp.com"+image.url.url;
+                                        // // alert(JSON.stringify(src));
+    // imageExists(src, function(exists) {
+    //   var x = src.replace("https://ecommerce-angular.herokuapp.com/uploads/image/url/", '');
+    //   var d = x.slice(3,);
+      
+    //   if (exists) {
+    //     alert("it's alive!");
+    //   }
+    //   else {
+    //     alert("oh well");
+    //   }
+    // });
+                                      return <img src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/tomato.jpg" alt="No image found" />
+                                          // return <img src={"https://ecommerce-angular.herokuapp.com"+image.url.url} alt="No image found" />
                                         })
                                  	}   	
                                     </div>
