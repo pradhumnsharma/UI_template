@@ -45,6 +45,7 @@ render(){
 	            return <Product key={product.product_detail.id} 
                 name={product.product_detail.name} 
                 price={product.product_detail.price} 
+                description={product.product_detail.description} 
                 id={product.product_detail.id} 
                 quantity={this.props.initialquantity} 
                 addtoCart={this.props.addTocart} 
@@ -52,7 +53,7 @@ render(){
 	        }	
         }
 		else{
-			return <Product key={product.product_detail.id} name={product.product_detail.name} price={product.product_detail.price} id={product.product_detail.id} quantity={this.props.initialquantity} addtoCart={this.props.addTocart} image={product.product_detail.image} />;
+			return <Product key={product.product_detail.id} description={product.product_detail.description} name={product.product_detail.name} price={product.product_detail.price} id={product.product_detail.id} quantity={this.props.initialquantity} addtoCart={this.props.addTocart} image={product.product_detail.image} />;
 		}
     });	
     return(

@@ -25,7 +25,7 @@ constructor(){
     this.x=qty;
   }
 
-  addCart(price, id, image, name){
+  addCart(price, id, image, name, description){
     if(this.state.yy){
       toast(name+ " is updated in your cart",{ autoClose: 2000, position: toast.POSITION.TOP_CENTER});  
     }else{
@@ -39,6 +39,7 @@ constructor(){
         product_quantity:this.x,
         product_image:image,
         product_name:name,
+        product_description:description,
         product_total_value: price*this.x
       }
   }, function(){this.props.addtoCart(this.state.selectedProducts);});
@@ -51,7 +52,7 @@ constructor(){
         <Image src="https://res.cloudinary.com/sivadass/image/upload/v1493620045/dummy-products/tomato.jpg" alt="No product" className="product-image"/>
         <p>{this.props.name}</p>
         <p className="clearfix main-data"><span style={{float:'left'}}>$&nbsp;{this.props.price}</span><Quantity addQuantity={this.quantHandler.bind(this)}/></p>
-          <Button bsStyle="primary" onClick={()=>{this.addCart(this.props.price, this.props.id, this.props.image, this.props.name)}}>Add To Cart</Button>       
+          <Button bsStyle="primary" onClick={()=>{this.addCart(this.props.price, this.props.id, this.props.image, this.props.name, this.props.description)}}>Add To Cart</Button>       
       </Col>
     );
   }

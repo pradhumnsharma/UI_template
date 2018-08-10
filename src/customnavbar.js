@@ -66,6 +66,9 @@ export default class CustomNavbar extends Component {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
+          <NavItem eventKey={1} componentClass={Link} href="/cart" to="/cart">
+              Cart
+          </NavItem>
             <NavItem eventKey={2} componentClass={Link} href="/shop" to="/shop">
               Shop
             </NavItem>

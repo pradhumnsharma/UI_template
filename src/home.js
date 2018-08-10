@@ -5,7 +5,7 @@ import axios from "axios";
 import {Link} from 'react-router-dom';
 import './home.css';
 
-
+import Cart from './cart';
 import products from './products.json';
 import Productcollection from './products/products';
 
@@ -33,9 +33,11 @@ export default class Home extends Component{
     this.handleAddToCart = this.handleAddToCart.bind(this);  
     this.countTotal = this.countTotal.bind(this);
     this.handleRemoveProduct = this.handleRemoveProduct.bind(this);
+    this.quantityHandler=this.quantityHandler.bind(this);
   }
 
   handleAddToCart(rawdata){
+    alert(JSON.stringify(rawdata));
     let cartItem = this.state.cart;
     let productID = rawdata.product_id;
     let productQty = rawdata.product_quantity;
@@ -55,7 +57,33 @@ export default class Home extends Component{
       },this.countTotal(this.state.cart))
     }
   }
-  
+  quantityHandler(a,b,c,d){
+    // alert(a+"  "+b+"  "+c+"  "+d);
+
+    let cartItem = this.state.cart;
+    let productID = b;
+    let productQty = a;
+    let productTotalValue = c;
+    if(this.checkProduct(productID)){
+      if(d){
+              let index = cartItem.findIndex((x => x.product_id === productID));
+              cartItem[index].product_quantity = cartItem[index].product_quantity - 1;
+              cartItem[index].product_total_value = cartItem[index].product_total_value - productTotalValue;
+              this.setState({
+                cart: cartItem
+              },this.countTotal(this.state.cart))  
+      }
+      else{
+        let index = cartItem.findIndex((x => x.product_id === productID));
+      cartItem[index].product_quantity = cartItem[index].product_quantity + 1;
+      cartItem[index].product_total_value = cartItem[index].product_total_value + productTotalValue;
+      this.setState({
+        cart: cartItem
+      },this.countTotal(this.state.cart))  
+      }
+      
+    }
+  }
   handleRemoveProduct(id, e){
     e.preventDefault();
     let cart = this.state.cart;
@@ -107,12 +135,11 @@ export default class Home extends Component{
   }
 	
 	render(){
-    // alert("Home sweet home "+ JSON.stringify(this.props.datas));
     let allproduct = [];
 if(this.state.contents.length > 0){
 
     allproduct=this.state.contents;
-  alert(JSON.stringify(allproduct));
+
   }
   else{
     allproduct=this.state.products;}
@@ -131,6 +158,7 @@ if(this.state.contents.length > 0){
                   <Route exact path="/" component={NewHome}/>
                   <Route exact path="/shop" component={(props) => <Productcollection filterranges={this.state.value4} allproducts={this.props.datas} initialquantity={this.state.quantity} addTocart={this.handleAddToCart} {...props}/>} />  
                   <Route path="/about" component={About} />
+                  <Route path="/cart" component={(props)=> <Cart cartprice = {this.state.totalAmount} quantityHandler={this.quantityHandler}  data={sam} removesdata={this.handleRemoveProduct} {...props}/>} />
                   <Route path="/contact" component={Contact} />
                   <Footer />
                  </div>
