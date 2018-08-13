@@ -7,20 +7,12 @@ class Quantity extends Component{
     this.state={
       value: 1
     },
-    this.qq = 0, 
-    this.dec = false,
     this.hand=this.hand.bind(this);
   }
 
   quantityDecrement(e){
-    if(this.props.cartquantityinfo){
-      this.qq = this.props.cartquantityinfo-1;
-      this.dec = true
-   }
-   this.setState({
-        value: this.state.value - 1
-      });
-   if(this.state.value > 1){
+    
+     if(this.state.value > 1){
      this.setState({
         value: this.state.value - 1
       });
@@ -28,9 +20,7 @@ class Quantity extends Component{
     e.preventDefault();
   }
   quantityIncrement(e){
-    if(this.props.cartquantityinfo){
-      this.qq = this.props.cartquantityinfo+1;
-    }
+   
      this.setState({
         value: this.state.value + 1
       });
@@ -42,21 +32,15 @@ class Quantity extends Component{
     });
   }
 componentDidUpdate(prevState){
-// alert(this.qq);  
   if(isNaN(this.state.value))
     return;
-  else if(this.qq > 0){
-    if(this.dec)
-      this.props.addQuantityfromCart(this.qq, this.props.productid, this.props.product_price,this.dec);
-    else
-      this.props.addQuantityfromCart(this.qq, this.props.productid, this.props.product_price,this.dec);
-  }
-  
+  else
+    this.props.addQuantity(this.state.value);
 }
   render(){
     let samm;
-    if(this.props.cartquantityinfo){
-      samm=this.props.cartquantityinfo;
+    if(this.props.cartdrawerquantity){
+      samm=this.props.cartdrawerquantity;
     }
     else{
       samm=this.state.value;

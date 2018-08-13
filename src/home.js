@@ -57,7 +57,8 @@ export default class Home extends Component{
       },this.countTotal(this.state.cart))
     }
   }
-  quantityHandler(a,b,c,d){
+  quantityHandler(quant){
+    alert(quant);
     // alert(a+"  "+b+"  "+c+"  "+d);
 
     let cartItem = this.state.cart;
@@ -67,7 +68,7 @@ export default class Home extends Component{
     if(this.checkProduct(productID)){
       if(d){
               let index = cartItem.findIndex((x => x.product_id === productID));
-              cartItem[index].product_quantity = cartItem[index].product_quantity - 1;
+              cartItem[index].product_quantity = quant;
               cartItem[index].product_total_value = cartItem[index].product_total_value - productTotalValue;
               this.setState({
                 cart: cartItem

@@ -2,34 +2,65 @@ import React, {Component} from 'react';
 import './cart.css';
 import Quantity from './products/quantity';
 import {Link} from 'react-router-dom';
+import { EEXIST } from 'constants';
 export default class Cart extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state={
-			quantityvalue:1
-		}
+			quantityvalue: this.props.data.length > 0 ? this.props.data.map((item)=> item.product_quantity):1
+		}, 
+		// this.value = 
+
 		   this.cartpageremoveHandler = this.cartpageremoveHandler.bind(this);
-		   this.quantitychangeHandler = this.quantitychangeHandler.bind(this);
+		//    this.quantitychangeHandler = this.quantitychangeHandler.bind(this);
 		   this.quantityHandlerIncrement=this.quantityHandlerIncrement.bind(this);
 		   this.quantityHandlerDecrement=this.quantityHandlerDecrement.bind(this);
+		   this.cartquantityHandler = this.cartquantityHandler.bind(this);
 	}
 	// quantitychangeHandler(cartquantity, ids, totprice, decrem){
 	// 	if(decrem){
- //             this.props.quantityHandler(cartquantity, ids, totprice, decrem);
+    //          this.props.quantityHandler(cartquantity, ids, totprice, decrem);
 	// 	}
 	// 	else{
 	// 	  this.props.quantityHandler(cartquantity, ids, totprice);	
 	// 	}
 	// }
 	quantityHandlerDecrement(e){
-       this.setState({
-       	  quantityvalue:this.state.quantityvalue-1
-       });
+	   if(this.state.quantityvalue > 1){
+		this.setState({
+			quantityvalue:this.state.quantityvalue-1
+		})
+		this.props.quantityHandler(this.state.quantityvalue);
+	   }
+	   else{
+		this.props.removesdata();	   
+	   }
+	   e.preventDefault();
 	}
-	cartpageremoveHandler(removing_quantity,e){
-    this.props.removesdata(removing_quantity,e);
+	quantityHandlerIncrement(e){
+		this.setState({
+			quantityvalue:parseInt(this.state.quantityvalue,10)+1
+		});
+		this.props.quantityHandler(this.state.quantityvalue);
+		e.preventDefault();
+	}
+	cartquantityHandler(e){
+		if(isNaN(this.state.quantityvalue))
+		  return;
+	    else{
+            this.setState({
+				quantityvalue:parseInt(e.target.value,10)
+			});
+		this.props.quantityHandler(this.state.quantityvalue);
+		}
+		e.preventDefault();
+	}
+	
+	cartpageremoveHandler(removing_product_id,e){
+    this.props.removesdata(removing_product_id,e);
   }
 	render(){
+		// alert(this.value);
 		let cart_item;
 		let styles; 
 		if(this.props.data.length > 0){
@@ -47,9 +78,9 @@ export default class Cart extends Component{
 							</td>
 							<td data-th="Price"><span>${item.product_price}</span></td>
 							<td data-th="Quantity">
-							 <a className="glyphicon glyphicon-minus" href="#" ></a>
-      <input onChange={this.quantityHandlerDecrement} id="value" class="form-control text-center" style={{margin:'0 auto'}} type="number" />
-      <a className="glyphicon glyphicon-plus" href="#"></a>
+							 <a className="glyphicon glyphicon-minus" onClick={this.quantityHandlerDecrement} href="#"></a>
+      <input id="value" class="form-control text-center" onChange={this.cartquantityHandler} style={{margin:'0 auto'}} type="number" value={this.state.quantityvalue} />
+      <a className="glyphicon glyphicon-plus" href="#" onClick={this.quantityHandlerIncrement} ></a>
 								
 							</td>
 							<td data-th="Subtotal" class="lg--text-center"><span>${item.product_total_value}</span></td>
